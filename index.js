@@ -15,7 +15,8 @@ function getFiles (dir, files_) {
   return files_;
 }
 
-function sortFiles (files) {
+async function sortFiles () {
+  let files = await getFiles('./foxes-img');
   if (!fs.existsSync('./result')) {
     fs.mkdirSync('./result');
   }
@@ -31,4 +32,4 @@ function sortFiles (files) {
   });
 }
 
-sortFiles(getFiles('./foxes-img'));
+sortFiles();
